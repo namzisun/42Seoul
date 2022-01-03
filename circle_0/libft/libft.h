@@ -3,11 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jnam <jnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 15:13:46 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/03 15:13:47 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/03 16:05:42 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef LIBFT_H
+# define LIBFT_H
 
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#endif
