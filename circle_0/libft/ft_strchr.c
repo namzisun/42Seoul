@@ -3,11 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jnam <jnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 15:10:57 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/03 15:11:00 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/03 16:08:31 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
+char    *ft_strchr(const char *s, int c)
+{
+    while (*s != '/0')
+    {
+        if (*s == (char)c)
+            return ((char *)s);
+        s++;
+    }
+    return (0);
+}

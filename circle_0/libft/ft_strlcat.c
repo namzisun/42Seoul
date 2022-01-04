@@ -3,11 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jnam <jnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 15:11:21 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/03 15:11:23 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/03 16:20:22 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
+size_t  ft_strlcat(char *dest, const char *src, size_t size)
+{
+    int     i;
+    int     j;
+    size_t  dest_len;
+    size_t  str_len;
+
+    dest_len = ft_strlen(dest);
+    str_len = ft_strlen(src);
+    i = 0;
+    j = dest_len;
+    while (src[i] != '\0')
+    {
+        dest[j] = src[i];
+        i++;
+        j++;
+    }
+    dest[j] = '\0';
+    if (size < dest_len)
+        return (str_len + size);
+    else
+        return (str_len + dest_len);
+}
