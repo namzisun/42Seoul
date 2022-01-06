@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 15:11:57 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/04 16:47:08 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/06 16:41:22 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 char *ft_strnstr(const char *dest, const char *src, size_t size)
 {
-    int i;
-    int j;
+    size_t  i;
+    size_t  j;
 
     i = 0;
-    j = 0;
-    if (*src == '\0')
-        return (dest);
-    while (dest[j] != '\0')
+    while (dest[i] != '\0' && i < size)
     {
-        if (dest[j] != src[i])
-            j++;
-        else if (dest[j] == src[i])
+        j = 0;
+        if (dest[i] == src[j])
         {
-            while (src[i] != '\0' && i < size)
+            while (src[j] != '\0' && dest[i + j] != '\0')
             {
-                i++;
+                if (src[j] != dest[i + j] || (i + j) <= size)
+                    break;
                 j++;
             }
+            if (src[j] == '\0')
+                return ((char *)dest[i]);
         }
+        i++;
     }
-
+    return ((void *)0);
 }
