@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnam <jnam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 16:59:12 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/06 17:23:32 by jnam             ###   ########.fr       */
+/*   Created: 2022/01/06 17:33:18 by jnam              #+#    #+#             */
+/*   Updated: 2022/01/06 17:33:22 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *calloc(size_t count, size_t size)
+void    *ft_calloc(size_t count, size_t size)
 {
     char    *str;
     int     i;

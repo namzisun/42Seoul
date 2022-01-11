@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnam <jnam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 16:59:22 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/06 17:08:29 by jnam             ###   ########.fr       */
+/*   Created: 2022/01/06 17:38:35 by jnam              #+#    #+#             */
+/*   Updated: 2022/01/06 17:38:37 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *strdup(const char *s)
+char    *ft_strdup(const char *s)
 {
     char    *copy;
     int     len;

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnam <jnam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 15:11:10 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/04 16:04:59 by jnam             ###   ########.fr       */
+/*   Created: 2022/01/06 17:38:51 by jnam              #+#    #+#             */
+/*   Updated: 2022/01/06 17:38:53 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t *ft_strlcpy(char *dest, const char *src, size_t size)
+size_t  *ft_strlcpy(char *dest, const char *src, size_t size)
 {
     size_t  src_len;
     int     i;

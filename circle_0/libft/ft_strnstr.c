@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnam <jnam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 15:11:57 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/06 16:41:22 by jnam             ###   ########.fr       */
+/*   Created: 2022/01/06 17:39:18 by jnam              #+#    #+#             */
+/*   Updated: 2022/01/06 17:39:21 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strnstr(const char *dest, const char *src, size_t size)
+char    *ft_strnstr(const char *dest, const char *src, size_t size)
 {
     size_t  i;
     size_t  j;
