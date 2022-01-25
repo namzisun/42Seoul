@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 17:39:30 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/25 16:20:17 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/26 00:22:29 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*find;
+	size_t	i;
 
-	find = NULL;
-	while (*s != '\0')
-	{
-		if (*s == c)
-			find = (char *)s;
-		s++;
-	}
-	return (find);
+	i = ft_strlen(s);
+	while (i > 0 && s[i] != (char)c)
+		i--;
+	if (s[i] == (char)c)
+		return ((char *)(s + i));
+	return (0);
 }
