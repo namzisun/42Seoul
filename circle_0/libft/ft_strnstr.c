@@ -6,33 +6,28 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 17:39:18 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/25 17:46:04 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/26 00:38:06 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *dest, const char *src, size_t size)
+char	*ft_strnstr(const char *str, const char *to_find, size_t size)
 {
 	size_t	i;
-	size_t	j;
 
-	i = 0;
-	while (dest[i] && i < size)
+	if (!*to_find)
+		return ((char *)str);
+	while (*str != '\0' && size-- > 0)
 	{
-		j = 0;
-		if (dest[i] == src[j])
+		i = 0;
+		while (*(str + i) == *(to_find + i) && i < size)
 		{
-			while (src[j] && dest[i + j])
-			{
-				if (src[j] != dest[i + j] || (i + j) <= size)
-					break ;
-				j++;
-			}
-			if (!src[j])
-				return (&((char *)dest)[i]);
+			i++;
+			if (!*(to_find + i))
+				return ((char *)str);
 		}
-		i++;
+		str++;
 	}
-	return ((void *)0);
+	return (0);
 }
