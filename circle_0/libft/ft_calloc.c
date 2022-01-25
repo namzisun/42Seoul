@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 17:33:18 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/23 18:46:56 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/25 16:41:15 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	char	*str;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	str = malloc((count) * size);

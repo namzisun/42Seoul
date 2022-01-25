@@ -6,13 +6,13 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 17:33:11 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/23 18:46:19 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/25 16:39:48 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_bzero(void *dest, size_t len)
+void	ft_bzero(void *dest, size_t len)
 {
-	memset(dest, 0, len);
+	ft_memset(dest, 0, len);
 }

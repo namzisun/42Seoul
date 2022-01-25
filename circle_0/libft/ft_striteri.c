@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:57:52 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/23 18:39:05 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/25 16:50:01 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 
 	i = 0;
 	if (!s)
-		return (NULL);
+		return ;
 	while (s[i])
 	{
 		f(i, s + i);

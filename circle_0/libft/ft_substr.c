@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:58:33 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/23 18:28:00 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/25 17:47:06 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
-	int		i;
+	size_t	i;
 
 	sub = (char *)malloc(sizeof(*s) * (len + 1));
 	if (!sub)
