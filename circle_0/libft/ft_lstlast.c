@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:01:59 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/23 18:54:39 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/26 01:06:05 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	while (!lst->next)
-	{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
 		lst = lst->next;
-	}
 	return (lst);
 }
