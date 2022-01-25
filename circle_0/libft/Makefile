@@ -1,6 +1,9 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
+AR = ar
+ARFLAGS = -rcs
+
 RM = rm -rf
 
 SRCS = \
@@ -20,3 +23,30 @@ OBJS = $(SRCS:.c=.o)
 OBJS_B = $(SRCS_B:.c=.o)
 
 NAME = libft.a
+
+ifdef BONUS_TRUE
+OBJECTS = $(OBJS) $(OBJS_B)
+else
+OBJECTS = $(OBJS)
+endif
+
+%o : %c
+$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME) : $(OBJECTS)
+$(AR) $(ARFLAGS) $(NAME) $(OBJECTS)
+
+bonus :
+make BONUS_TRUE=1 all
+
+all : $(NAME)
+
+clean :
+$(RM) $(OBJS) $(OBJS_B)
+
+fclean : clean
+$(RM) $(NAME)
+
+re : fclean all
+
+.PHONY : all clean fclean re bonus
