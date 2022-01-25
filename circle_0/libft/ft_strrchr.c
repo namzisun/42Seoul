@@ -6,24 +6,22 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 17:39:30 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/06 17:39:32 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/23 18:27:34 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//문자열에서 특정 문자를 찾을 때 사용하는 함수
-//문자열 s에서 마지막으로 찾은 문자 c의 포인터를 리턴
-//return (문자열 포인터 변수)
-char    *ft_strrchr(const char *s, int c)
-{
-    char *find;
 
-    *find = NULL;
-    while (*s != '\0')
-    {
-        if(*s == c)
-            find = (char *)s;
-        s++;
-    }
-    return (find);
+char	*ft_strrchr(const char *s, int c)
+{
+	char	*find;
+
+	*find = NULL;
+	while (*s != '\0')
+	{
+		if (*s == c)
+			find = (char *)s;
+		s++;
+	}
+	return (find);
 }

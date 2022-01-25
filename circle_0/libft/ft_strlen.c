@@ -6,18 +6,18 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 17:39:00 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/06 17:39:01 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/23 18:34:03 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while(s[i] != '\0')
-        i++;
-    return (i);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

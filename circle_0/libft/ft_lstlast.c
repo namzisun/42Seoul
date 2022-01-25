@@ -6,17 +6,17 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:01:59 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/20 17:02:00 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/23 18:54:39 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list  *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-    while (!lst->next)
-    {
-        lst = lst->next;
-    }
-    return (lst);
+	while (!lst->next)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }

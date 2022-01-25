@@ -6,17 +6,17 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 17:33:48 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/06 17:33:49 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/23 18:47:49 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_lsalpha(int c)
+int	ft_lsalpha(int c)
 {
-    if ('A' <= c && c <= 'Z')
-        return (1);
-    else if ('a' <= c && c <= 'z')
-        return (2);
-    return (0);
+	if ('A' <= c && c <= 'Z')
+		return (1);
+	else if ('a' <= c && c <= 'z')
+		return (2);
+	return (0);
 }

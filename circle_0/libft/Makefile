@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/01/25 15:57:20 by jnam              #+#    #+#              #
+#    Updated: 2022/01/25 16:06:37 by jnam             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -15,7 +27,7 @@ ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c \
 ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c
 
 SRCS_B = \
-ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c \ 
+ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c \
 ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
 
 OBJS = $(SRCS:.c=.o)
@@ -25,27 +37,27 @@ OBJS_B = $(SRCS_B:.c=.o)
 NAME = libft.a
 
 ifdef BONUS_TRUE
-OBJECTS = $(OBJS) $(OBJS_B)
+		OBJECTS = $(OBJS) $(OBJS_B)
 else
-OBJECTS = $(OBJS)
+		OBJECTS = $(OBJS)
 endif
 
 %o : %c
-$(CC) $(CFLAGS) -c $< -o $@
+		$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJECTS)
-$(AR) $(ARFLAGS) $(NAME) $(OBJECTS)
+		$(AR) $(ARFLAGS) $(NAME) $(OBJECTS)
 
 bonus :
-make BONUS_TRUE=1 all
+		make BONUS_TRUE=1 all
 
 all : $(NAME)
 
 clean :
-$(RM) $(OBJS) $(OBJS_B)
+		$(RM) $(OBJS) $(OBJS_B)
 
 fclean : clean
-$(RM) $(NAME)
+		$(RM) $(NAME)
 
 re : fclean all
 

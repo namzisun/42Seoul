@@ -6,19 +6,19 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:56:40 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/11 17:56:44 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/23 18:40:42 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-    while (*s != '/0')
-    {
-        if (*s == (char)c)
-            return ((char *)s);
-        s++;
-    }
-    return (0);
+	while (*s != '/0')
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	return (0);
 }

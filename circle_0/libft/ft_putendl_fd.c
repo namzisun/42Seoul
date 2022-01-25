@@ -6,16 +6,16 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:57:16 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/18 16:57:17 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/23 18:43:11 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
-    if (!s)
-        return ;
-    ft_putstr_fd(s, fd);
-    ft_putchar_fd('\n', fd);
+	if (!s)
+		return ;
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

@@ -6,15 +6,15 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 17:34:14 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/06 17:34:16 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/23 18:48:54 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
-    if (32 <= c && c <= 126)
-        return (1);
-    return (0);
+	if (32 <= c && c <= 126)
+		return (1);
+	return (0);
 }
