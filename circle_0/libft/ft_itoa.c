@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:56:51 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/23 19:06:24 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/26 01:26:00 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static long	ft_abs(int n)
 	return (n);
 }
 
-static int	ft_len(int n)
+static size_t	ft_len(size_t n)
 {
-	int		i;
+	size_t	i;
 	long	num;
 
 	num = ft_abs(n);
@@ -38,7 +38,7 @@ static int	ft_len(int n)
 	return (i + 1);
 }
 
-static int	ft_decimal(long n)
+static long	ft_decimal(long n)
 {
 	while (n > 10)
 	{
@@ -51,7 +51,7 @@ char	*ft_itoa(int n)
 {
 	char	*str;
 	long	num;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	num = ft_abs(n);
