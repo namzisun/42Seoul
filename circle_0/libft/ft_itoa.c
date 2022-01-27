@@ -6,23 +6,23 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:56:51 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/26 01:26:00 by jnam             ###   ########.fr       */
+/*   Updated: 2022/01/27 17:19:05 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static long	ft_abs(int n)
+static size_t	ft_abs(int n)
 {
 	if (n < 0)
-		return (-n);
+		return ((long long)n * -1);
 	return (n);
 }
 
-static size_t	ft_len(size_t n)
+static int	ft_len(int n)
 {
-	size_t	i;
-	long	num;
+	int	i;
+	size_t	num;
 
 	num = ft_abs(n);
 	i = 0;
@@ -30,42 +30,35 @@ static size_t	ft_len(size_t n)
 		i++;
 	while (1)
 	{
+		i++;
 		if (num < 10)
 			break ;
 		num = num / 10;
-		i++;
 	}
-	return (i + 1);
-}
-
-static long	ft_decimal(long n)
-{
-	while (n > 10)
-	{
-		n = n / 10;
-	}
-	return (n);
+	return (i);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*str;
-	long	num;
-	size_t	i;
+	size_t	num;
+	int	len;
 
-	i = 0;
 	num = ft_abs(n);
-	str = (char *)malloc(sizeof(char) * (ft_len(n) + 1));
+	len = ft_len(n);
+	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
-		return (NULL);
-	if (n < 0)
-		str[i++] = '-';
-	while (i < ft_len(n))
+		return (0);
+	str[len] = 0;
+	while (--len >= 0)
 	{
-		str[i] = ft_decimal(num) + 48;
-		num = num % 10;
-		i++;
+		if (len == 0 && n < 0)
+		{
+			str[len] = '-';
+			break ;
+		}
+		str[len] = (num % 10) + '0';
+		num = num / 10;
 	}
-	str[i] = 0;
 	return (str);
 }
