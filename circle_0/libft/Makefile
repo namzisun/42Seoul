@@ -6,17 +6,14 @@
 #    By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/25 15:57:20 by jnam              #+#    #+#              #
-#    Updated: 2022/01/25 16:06:37 by jnam             ###   ########.fr        #
+#    Updated: 2022/02/01 18:17:16 by jnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-
-AR = ar
-ARFLAGS = -rcs
-
-RM = rm -rf
+RM = rm -f
+NAME = libft.a
 
 SRCS = \
 ft_atoi.c ft_bzero.c ft_calloc.c ft_itoa.c ft_split.c ft_tolower.c ft_toupper.c \
@@ -31,10 +28,7 @@ ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c \
 ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
 
 OBJS = $(SRCS:.c=.o)
-
 OBJS_B = $(SRCS_B:.c=.o)
-
-NAME = libft.a
 
 ifdef BONUS_TRUE
 		OBJECTS = $(OBJS) $(OBJS_B)
@@ -46,7 +40,7 @@ endif
 		$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJECTS)
-		$(AR) $(ARFLAGS) $(NAME) $(OBJECTS)
+		ar rcs $(NAME) $(OBJECTS)
 
 bonus :
 		make BONUS_TRUE=1 all
@@ -58,7 +52,7 @@ clean :
 
 fclean : clean
 		$(RM) $(NAME)
-
-re : fclean all
+re :
+		fclean all
 
 .PHONY : all clean fclean re bonus
