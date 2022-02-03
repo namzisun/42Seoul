@@ -6,7 +6,7 @@
 #    By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/25 15:57:20 by jnam              #+#    #+#              #
-#    Updated: 2022/02/01 18:17:16 by jnam             ###   ########.fr        #
+#    Updated: 2022/02/01 18:50:43 by jnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,6 @@ clean :
 
 fclean : clean
 		$(RM) $(NAME)
-re :
-		fclean all
+re :	fclean all
 
 .PHONY : all clean fclean re bonus

@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:58:33 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/26 23:02:15 by jnam             ###   ########.fr       */
+/*   Updated: 2022/02/01 18:25:22 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	if (ft_strlen(s) - start < len)
 		len = ft_strlen(s) - start;
-	if (!(sub = (char *)malloc(sizeof(char) * (len + 1))))	
+	sub = (char *)malloc(sizeof(char) * (len + 1));
+	if (!sub)
 		return (0);
 	i = 0;
 	while (s[start + i] && i < len)

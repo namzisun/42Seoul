@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:56:51 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/27 17:19:05 by jnam             ###   ########.fr       */
+/*   Updated: 2022/02/01 18:22:45 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static size_t	ft_abs(int n)
 
 static int	ft_len(int n)
 {
-	int	i;
+	int		i;
 	size_t	num;
 
 	num = ft_abs(n);
@@ -42,7 +42,7 @@ char	*ft_itoa(int n)
 {
 	char	*str;
 	size_t	num;
-	int	len;
+	int		len;
 
 	num = ft_abs(n);
 	len = ft_len(n);

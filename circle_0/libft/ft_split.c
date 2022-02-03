@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 15:57:41 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/29 22:16:10 by jnam             ###   ########.fr       */
+/*   Updated: 2022/02/01 18:27:01 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ static int	ft_word(char const *s, char c, int *j)
 
 static char	*ft_sep(char const *s, char c, int *j)
 {
-	int	i;
-	int	k;
-	int	word_len;
+	int		i;
+	int		k;
+	int		word_len;
 	char	*sep;
 
 	word_len = ft_word(s, c, j);
@@ -88,9 +88,9 @@ static void	ft_free(char **tab, int index)
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
-	int	len;
-	int	i;
-	int	j;
+	int		len;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
