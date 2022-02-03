@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 17:33:04 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/26 00:48:07 by jnam             ###   ########.fr       */
+/*   Updated: 2022/02/03 16:19:11 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,6 @@ int	ft_atoi(const char *str)
 	{
 		num *= 10;
 		num += (str[i] - '0');
-		if (num > 2147483647 && sign == 1)
-			return (-1);
-		if (num > 2147483648 && sign == -1)
-			return (0);
 		i++;
 	}
 	return (num * sign);
