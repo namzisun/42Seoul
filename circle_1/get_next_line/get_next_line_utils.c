@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 16:11:02 by jnam              #+#    #+#             */
-/*   Updated: 2022/03/13 16:13:55 by jnam             ###   ########.fr       */
+/*   Updated: 2022/03/18 17:12:08 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ size_t	ft_strlen(const char *s)
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -36,28 +36,21 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!str)
 		return (NULL);
 	while (s1[i])
-	{
-		str[j++] = s1[i];
-		i++;
-	}
+		str[j++] = s1[i++];
 	i = 0;
 	while (s2[i])
-	{
-		str[j++] = s2[i];
-		i++;
-	}
+		str[j++] = s2[i++];
 	str[j] = 0;
 	return (str);
 }
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
-
-	i = ft_strlen(s);
-	while (i > 0 && s[i] != (char)c)
-		i--;
-	if (s[i] == (char)c)
-		return ((char *)(s + i));
-	return (0);
+	while (*s != (char)c)
+	{
+		if (!*s)
+			return (0);
+		s++;
+	}
+	return ((char *)s);
 }
