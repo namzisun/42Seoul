@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 16:11:02 by jnam              #+#    #+#             */
-/*   Updated: 2022/03/18 17:12:08 by jnam             ###   ########.fr       */
+/*   Updated: 2022/03/20 20:01:13 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
 	int	i;
-	int	j;
+	int	t;
 
 	i = 0;
 	j = 0;
@@ -46,6 +46,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 char	*ft_strchr(const char *s, int c)
 {
+	if (!s)
+		return (0);
 	while (*s != (char)c)
 	{
 		if (!*s)
