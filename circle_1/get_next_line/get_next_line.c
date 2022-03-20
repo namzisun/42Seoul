@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:22:54 by jnam              #+#    #+#             */
-/*   Updated: 2022/03/18 17:16:51 by jnam             ###   ########.fr       */
+/*   Updated: 2022/03/20 19:42:15 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ char	*ft_read(int fd, char *str)
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (NULL);
-	r_bytes = 1;
 	while (!ft_strchr(str, '\n'))
 	{
 		r_bytes = read(fd, buf, BUFFER_SIZE);
@@ -45,6 +44,8 @@ char	*ft_set_line(char *str)
 	int	j;
 
 	i = 0;
+	if (!str[i])
+		return (NULL);
 	while (str[i] && str[i] != '\n')
 		i++;
 	line = malloc(sizeof(char) * (i + 2));
@@ -72,7 +73,10 @@ char	*ft_set_str(char *str)
 	while (str[i] && str[i] != '\n')
 		i++;
 	if (!str[i])
+	{
+		free(str);
 		return (NULL);
+	}
 	update = malloc(sizeof(char) * (ft_strlen(str) - i + 1));
 	if (!update)
 		return (NULL);
@@ -81,6 +85,7 @@ char	*ft_set_str(char *str)
 	while (str[i])
 		update[j++] = str[i++];
 	update[j] = '\0';
+	free(str);
 	return (update);
 }
 
