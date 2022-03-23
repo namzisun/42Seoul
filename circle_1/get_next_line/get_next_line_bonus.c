@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 16:22:54 by jnam              #+#    #+#             */
-/*   Updated: 2022/03/23 20:16:07 by jnam             ###   ########.fr       */
+/*   Created: 2022/03/23 18:54:33 by jnam              #+#    #+#             */
+/*   Updated: 2022/03/23 20:37:43 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
+#include <unistd.h>
 
 char	*ft_read(int fd, char *str)
 {
 	char	*buf;
 	int	r_bytes;
-	
+
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (NULL);
@@ -38,7 +39,7 @@ char	*ft_read(int fd, char *str)
 }
 
 char	*ft_set_line(char *str)
-{	
+{
 	char	*line;
 	int	i;
 	int	j;
@@ -70,7 +71,7 @@ char	*ft_set_str(char *str)
 	int	j;
 
 	i = 0;
-	while (str[i] && str[i] != '\n')
+	while (str[i] && str[i] != '\0')
 		i++;
 	if (!str[i])
 	{
@@ -91,15 +92,15 @@ char	*ft_set_str(char *str)
 
 char	*get_next_line(int fd)
 {
-	static char	*str;
+	static char	*str[256];
 	char		*line;
-	
+
 	if (fd < 0 || BUFFER_SIZE < 1)
+		return (NULL); 
+	str[fd] = ft_read(fd, str[fd]);
+	if (!str[fd])
 		return (NULL);
-	str = ft_read(fd, str);
-	if (!str)
-		return (NULL);
-	line = ft_set_line(str);
-	str = ft_set_str(str);
+	line = ft_set_line(str[fd]);
+	str[fd] = ft_set_str(str[fd]);
 	return (line);
 }
