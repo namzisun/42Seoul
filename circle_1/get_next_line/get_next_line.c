@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:22:54 by jnam              #+#    #+#             */
-/*   Updated: 2022/03/23 21:05:04 by jnam             ###   ########.fr       */
+/*   Updated: 2022/03/24 16:20:01 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ char	*ft_read(int fd, char *str)
 		if (r_bytes == -1)
 		{
 			free(buf);
+			if (str)
+				free(str);
 			return (NULL);
 		}
 		buf[r_bytes] = '\0';
