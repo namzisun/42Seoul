@@ -6,11 +6,12 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:22:54 by jnam              #+#    #+#             */
-/*   Updated: 2022/03/24 16:20:01 by jnam             ###   ########.fr       */
+/*   Updated: 2022/03/24 21:07:38 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <unistd.h>
 
 char	*ft_read(int fd, char *str)
 {
