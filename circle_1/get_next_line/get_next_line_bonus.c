@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 18:54:33 by jnam              #+#    #+#             */
-/*   Updated: 2022/03/24 21:06:48 by jnam             ###   ########.fr       */
+/*   Updated: 2022/03/25 14:56:26 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 char	*ft_read(int fd, char *str)
 {
 	char	*buf;
-	int	r_bytes;
+	int		r_bytes;
 
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
@@ -25,7 +25,7 @@ char	*ft_read(int fd, char *str)
 	{
 		r_bytes = read(fd, buf, BUFFER_SIZE);
 		if (r_bytes == 0)
-			break;
+			break ;
 		if (r_bytes == -1)
 		{
 			free(buf);
@@ -43,8 +43,8 @@ char	*ft_read(int fd, char *str)
 char	*ft_set_line(char *str)
 {
 	char	*line;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	if (!str[0])
 		return (NULL);
@@ -69,8 +69,8 @@ char	*ft_set_line(char *str)
 char	*ft_set_str(char *str)
 {
 	char	*update;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (str[i] && str[i] != '\n')
@@ -98,7 +98,7 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE < 1 || fd > 258)
-		return (NULL); 
+		return (NULL);
 	str[fd] = ft_read(fd, str[fd]);
 	if (!str[fd])
 		return (NULL);

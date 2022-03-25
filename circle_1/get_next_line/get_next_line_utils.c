@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 16:11:02 by jnam              #+#    #+#             */
-/*   Updated: 2022/03/21 20:51:30 by jnam             ###   ########.fr       */
+/*   Updated: 2022/03/25 14:57:27 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ size_t	ft_strlen(const char *s)
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
