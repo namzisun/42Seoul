@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 18:54:33 by jnam              #+#    #+#             */
-/*   Updated: 2022/03/25 14:56:26 by jnam             ###   ########.fr       */
+/*   Updated: 2022/03/25 15:56:01 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ char	*ft_read(int fd, char *str)
 		if (r_bytes == -1)
 		{
 			free(buf);
-			if (str)
-				free(NULL);
 			return (NULL);
 		}
 		buf[r_bytes] = '\0';
@@ -94,10 +92,10 @@ char	*ft_set_str(char *str)
 
 char	*get_next_line(int fd)
 {
-	static char	*str[259];
+	static char	*str[256];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE < 1 || fd > 258)
+	if (fd < 0 || BUFFER_SIZE < 1 || fd > 255)
 		return (NULL);
 	str[fd] = ft_read(fd, str[fd]);
 	if (!str[fd])
