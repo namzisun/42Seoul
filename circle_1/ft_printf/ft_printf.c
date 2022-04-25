@@ -12,6 +12,16 @@
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *, ...)
+int ft_check_format()
 {
+    int len;
+
+    return (len);
+}
+
+int	ft_printf(const char *format, ...)
+{
+    int len;
+
+    return (len);
 }
