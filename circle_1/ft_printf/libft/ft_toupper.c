@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_c.c                                      :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 16:04:28 by jnam              #+#    #+#             */
-/*   Updated: 2022/04/27 20:23:50 by jnam             ###   ########.fr       */
+/*   Created: 2022/01/11 17:55:30 by jnam              #+#    #+#             */
+/*   Updated: 2022/01/23 18:22:01 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf_c(va_list ap)
+int	ft_toupper(int c)
 {
-	unsigned char	c;
-	int				len;
-
-	c = (unsigned char)va_arg(ap, int);
-	len = write(1, &c, 1);
-	return (len);
+	if ('a' <= c && c <= 'z')
+		c -= 32;
+	return (c);
 }

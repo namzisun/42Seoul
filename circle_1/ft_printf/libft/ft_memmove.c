@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_c.c                                      :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 16:04:28 by jnam              #+#    #+#             */
-/*   Updated: 2022/04/27 20:23:50 by jnam             ###   ########.fr       */
+/*   Created: 2022/01/11 17:56:17 by jnam              #+#    #+#             */
+/*   Updated: 2022/01/23 19:09:03 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf_c(va_list ap)
+void	*ft_memmove(void *dest, const void *src, size_t size)
 {
-	unsigned char	c;
-	int				len;
+	unsigned char	*str_d;
+	unsigned char	*str_s;
 
-	c = (unsigned char)va_arg(ap, int);
-	len = write(1, &c, 1);
-	return (len);
+	str_d = (unsigned char *)dest;
+	str_s = (unsigned char *)src;
+	if (dest == src || size == 0)
+		return (dest);
+	else if (dest < src)
+	{
+		while (size--)
+			*str_d++ = *str_s++;
+	}
+	else
+	{
+		str_d += size;
+		str_s += size;
+		while (size--)
+			*--str_d = *--str_s;
+	}
+	return (dest);
 }

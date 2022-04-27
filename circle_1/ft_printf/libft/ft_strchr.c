@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_c.c                                      :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 16:04:28 by jnam              #+#    #+#             */
-/*   Updated: 2022/04/27 20:23:50 by jnam             ###   ########.fr       */
+/*   Created: 2022/01/11 17:56:40 by jnam              #+#    #+#             */
+/*   Updated: 2022/01/26 00:07:21 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf_c(va_list ap)
+char	*ft_strchr(const char *s, int c)
 {
-	unsigned char	c;
-	int				len;
-
-	c = (unsigned char)va_arg(ap, int);
-	len = write(1, &c, 1);
-	return (len);
+	while (*s != (char)c)
+	{
+		if (!*s)
+			return (0);
+		s++;
+	}
+	return ((char *)s);
 }

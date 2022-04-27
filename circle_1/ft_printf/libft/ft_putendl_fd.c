@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_c.c                                      :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 16:04:28 by jnam              #+#    #+#             */
-/*   Updated: 2022/04/27 20:23:50 by jnam             ###   ########.fr       */
+/*   Created: 2022/01/18 16:57:16 by jnam              #+#    #+#             */
+/*   Updated: 2022/01/23 18:43:11 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf_c(va_list ap)
+void	ft_putendl_fd(char *s, int fd)
 {
-	unsigned char	c;
-	int				len;
-
-	c = (unsigned char)va_arg(ap, int);
-	len = write(1, &c, 1);
-	return (len);
+	if (!s)
+		return ;
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

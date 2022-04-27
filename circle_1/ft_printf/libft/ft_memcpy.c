@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_c.c                                      :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 16:04:28 by jnam              #+#    #+#             */
-/*   Updated: 2022/04/27 20:23:50 by jnam             ###   ########.fr       */
+/*   Created: 2022/01/11 17:56:07 by jnam              #+#    #+#             */
+/*   Updated: 2022/01/25 16:46:46 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf_c(va_list ap)
+void	*ft_memcpy(void *dest, const void *src, size_t size)
 {
-	unsigned char	c;
-	int				len;
+	char		*str_d;
+	const char	*str_s;
+	size_t		i;
 
-	c = (unsigned char)va_arg(ap, int);
-	len = write(1, &c, 1);
-	return (len);
+	i = 0;
+	str_d = dest;
+	str_s = src;
+	while (i < size)
+	{
+		*str_d++ = *str_s++;
+		i++;
+	}
+	return (dest);
 }

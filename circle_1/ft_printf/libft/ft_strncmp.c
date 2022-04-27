@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_c.c                                      :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 16:04:28 by jnam              #+#    #+#             */
-/*   Updated: 2022/04/27 20:23:50 by jnam             ###   ########.fr       */
+/*   Created: 2022/01/06 17:39:10 by jnam              #+#    #+#             */
+/*   Updated: 2022/01/25 23:53:22 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf_c(va_list ap)
+int	ft_strncmp(const char *s1, const char *s2, size_t size)
 {
-	unsigned char	c;
-	int				len;
+	size_t	i;
 
-	c = (unsigned char)va_arg(ap, int);
-	len = write(1, &c, 1);
-	return (len);
+	i = 0;
+	if (size == 0)
+		return (0);
+	while (i < size - 1)
+	{
+		if (s1[i] && s2[i] && s1[i] == s2[i])
+			i++;
+		else
+			break ;
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

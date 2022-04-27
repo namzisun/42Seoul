@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_c.c                                      :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 16:04:28 by jnam              #+#    #+#             */
-/*   Updated: 2022/04/27 20:23:50 by jnam             ###   ########.fr       */
+/*   Created: 2022/01/11 17:55:57 by jnam              #+#    #+#             */
+/*   Updated: 2022/01/25 16:43:56 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf_c(va_list ap)
+int	ft_memcmp(const void *dest, const void *src, size_t size)
 {
-	unsigned char	c;
-	int				len;
+	size_t			i;
+	unsigned char	*str_d;
+	unsigned char	*str_s;
 
-	c = (unsigned char)va_arg(ap, int);
-	len = write(1, &c, 1);
-	return (len);
+	i = 0;
+	str_d = (unsigned char *)dest;
+	str_s = (unsigned char *)src;
+	while (i < size)
+	{
+		if (str_d[i] != str_s[i])
+			return (str_d[i] - str_s[i]);
+		i++;
+	}
+	return (0);
 }

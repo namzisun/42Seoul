@@ -1,17 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_u.c                                      :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 16:27:13 by jnam              #+#    #+#             */
-/*   Updated: 2022/04/27 16:28:08 by jnam             ###   ########.fr       */
+/*   Created: 2022/01/20 17:01:46 by jnam              #+#    #+#             */
+/*   Updated: 2022/01/23 18:54:15 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf_u(unsigned int u)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
+	t_list	*cur;
+
+	if (!f)
+		return ;
+	cur = lst;
+	while (cur)
+	{
+		(*f)(cur->content);
+		cur = cur->next;
+	}
 }

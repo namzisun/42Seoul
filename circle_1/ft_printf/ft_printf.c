@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 20:58:42 by jnam              #+#    #+#             */
-/*   Updated: 2022/04/27 16:26:43 by jnam             ###   ########.fr       */
+/*   Updated: 2022/04/27 20:39:41 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,20 @@ int	ft_print_format(const char type, va_list ap)
 	else if (type == 's')
 		len = ft_printf_s(ap);
 	else if (type == 'p')
-		len = ft_printf_addr(ap);
+	{
+		len = write(1, "0x", 2);
+		len += ft_printf_hex((unsigned long long)(va_arg(ap, void *)), 0, 0);
+	}
 	else if (type == 'd' || type == 'i')
 		len = ft_printf_di(ap);
 	else if (type == 'u')
-		len = ft_printf_u(ap);
-	else if (type == 'x' || type == 'X')
-		len = ft_printf_hex(ap);
+		len = ft_printf_hex((unsigned int)(va_arg(ap, int), 1, 0);
+	else if (type == 'x')
+		len = ft_printf_hex((unsigned int)(va_arg(ap, int), 0, 0);
+	else if (type = 'X')
+		len = ft_printf_hex((unsigned int)(va_arg(ap, int), 0, 1);
 	else if (type == '%')
-	{
-		write(1, '%', 1);
-		len = 1;
-	}
+		len = write(1, '%', 1);
 	else
 		return (-1);
     return (len);
@@ -43,6 +45,7 @@ int	ft_printf(const char *format, ...)
     int		len;
 	va_list	ap;
 
+	len = 0;
 	va_start(ap, format);
 	while (*format)
 	{
