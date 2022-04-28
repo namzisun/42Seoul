@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 20:58:42 by jnam              #+#    #+#             */
-/*   Updated: 2022/04/28 14:15:28 by jnam             ###   ########.fr       */
+/*   Updated: 2022/04/28 15:13:27 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_printf_format(const char type, va_list ap)
 	if (type == 'c')
 		len = ft_printf_char((unsigned char)va_arg(ap, int));
 	else if (type == 's')
-		len = ft_printf_str((unsigned char *)va_arg(ap, char *));
+		len = ft_printf_str((char *)va_arg(ap, char *));
 	else if (type == 'p')
 	{
 		len = write(1, "0x", 2);
@@ -34,9 +34,9 @@ int	ft_printf_format(const char type, va_list ap)
 	else if (type == 'X')
 		len = ft_printf_hex((unsigned int)va_arg(ap, int), 1);
 	else if (type == '%')
-		len = write(1, '%', 1);
+		len = write(1, "%", 1);
 	else
-		return (-1);
+		return (ERROR);
 	return (len);
 }
 
