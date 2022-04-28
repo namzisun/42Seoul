@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 01:48:55 by jnam              #+#    #+#             */
-/*   Updated: 2022/04/28 14:28:18 by jnam             ###   ########.fr       */
+/*   Updated: 2022/04/28 16:09:56 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include "libft/libft.h"
 
-# define ERROR -1
 # define INT_MIN -2147483648
 
 int	ft_printf(const char *format, ...);

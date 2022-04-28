@@ -6,13 +6,13 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 20:58:42 by jnam              #+#    #+#             */
-/*   Updated: 2022/04/28 15:13:27 by jnam             ###   ########.fr       */
+/*   Updated: 2022/04/28 16:09:46 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_format(const char type, va_list ap)
+static int	ft_printf_format(const char type, va_list ap)
 {
 	int	len;
 
@@ -36,7 +36,7 @@ int	ft_printf_format(const char type, va_list ap)
 	else if (type == '%')
 		len = write(1, "%", 1);
 	else
-		return (ERROR);
+		len = write(1, &type, 1);
 	return (len);
 }
 
@@ -59,7 +59,8 @@ int	ft_printf(const char *format, ...)
 			write(1, format, 1);
 			len++;
 		}
-		format++;
+		if (*format)
+			format++;
 	}
 	va_end(ap);
 	return (len);
