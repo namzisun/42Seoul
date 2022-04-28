@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 00:40:02 by jnam              #+#    #+#             */
-/*   Updated: 2022/04/28 01:46:17 by jnam             ###   ########.fr       */
+/*   Updated: 2022/04/28 14:05:27 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_printf_char(unsigned char c)
 	return (len);
 }
 
-int	ft_printf_str(unsigned char* str)
+int	ft_printf_str(unsigned char *str)
 {
 	int		len;
 
@@ -32,7 +32,7 @@ int	ft_printf_str(unsigned char* str)
 
 int	ft_printf_nbr(int num)
 {
-	int	len;
+	int		len;
 	char	*str;
 
 	str = ft_itoa(num);
@@ -58,9 +58,9 @@ int	ft_printf_ui(unsigned int num)
 
 int	ft_printf_hex(unsigned long long num, int upper)
 {
-	int	len;
-	static char*	lower_base[16] = "0123456789abcdef";
-	static char*	upper_base[16] = "0123456789ABCDEF";
+	int			len;
+	static char	*lower_base[16] = "0123456789abcdef";
+	static char	*upper_base[16] = "0123456789ABCDEF";
 
 	len = 0;
 	if (num < 16)
