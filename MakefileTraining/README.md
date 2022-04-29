@@ -1,4 +1,5 @@
 # 🚀 Makefile 직접 만들어보기 실습
+make by (https://github.com/Likilee/Makefile_Training)
 
 ## :man_astronaut: 실습 방법
 
