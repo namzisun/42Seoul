@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 00:40:02 by jnam              #+#    #+#             */
-/*   Updated: 2022/04/28 15:56:43 by jnam             ###   ########.fr       */
+/*   Updated: 2022/04/29 21:51:58 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,9 @@ int	ft_printf_str(char *str)
 	int		len;
 
 	if (!str)
-	{
-		len = write(1, "(null)", 6);
-		return (len);
-	}
-	len = write(1, str, ft_strlen(str));
+		len = ft_printf_str("(null)");
+	else
+		len = write(1, str, ft_strlen(str));
 	return (len);
 }
 
