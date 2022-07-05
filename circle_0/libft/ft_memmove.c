@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 17:56:17 by jnam              #+#    #+#             */
-/*   Updated: 2022/07/05 17:50:05 by jnam             ###   ########.fr       */
+/*   Updated: 2022/07/05 18:00:36 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	else
 	{
 		i = len;
-		while (i > 0)
-		{
-			((unsigned char *)dst)[i-1] = temp_src[i-1];
-			i--;
-		}
+		while (i-- > 0)
+			((unsigned char *)dst)[i] = temp_src[i];
 	}
 	return (dst);
 }
