@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 17:02:11 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/23 18:55:39 by jnam             ###   ########.fr       */
+/*   Created: 2022/07/06 17:18:40 by jnam              #+#    #+#             */
+/*   Updated: 2022/07/06 17:24:05 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new_list;
 	t_list	*newnode;
 
-	if (!f || !del)
+	if (!lst || !f || !del)
 		return (NULL);
 	new_list = NULL;
 	while (lst)

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 17:01:46 by jnam              #+#    #+#             */
-/*   Updated: 2022/01/23 18:54:15 by jnam             ###   ########.fr       */
+/*   Created: 2022/07/06 17:18:31 by jnam              #+#    #+#             */
+/*   Updated: 2022/07/06 17:18:33 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*cur;
 
-	if (!f)
+	if (!lst || !f)
 		return ;
 	cur = lst;
 	while (cur)
