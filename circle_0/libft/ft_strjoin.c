@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 16:58:03 by jnam              #+#    #+#             */
-/*   Updated: 2022/02/03 16:19:58 by jnam             ###   ########.fr       */
+/*   Created: 2022/07/06 16:57:52 by jnam              #+#    #+#             */
+/*   Updated: 2022/07/06 16:57:56 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!str)
 		return (NULL);
 	while (s1[i])
-	{
-		str[j++] = s1[i];
-		i++;
-	}
+		str[j++] = s1[i++];
 	i = 0;
 	while (s2[i])
-	{
-		str[j++] = s2[i];
-		i++;
-	}
+		str[j++] = s2[i++];
 	str[j] = 0;
 	return (str);
 }

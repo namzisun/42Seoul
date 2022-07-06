@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 15:57:41 by jnam              #+#    #+#             */
-/*   Updated: 2022/02/01 18:27:01 by jnam             ###   ########.fr       */
+/*   Created: 2022/07/06 16:57:24 by jnam              #+#    #+#             */
+/*   Updated: 2022/07/06 16:57:30 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,7 @@ static char	*ft_sep(char const *s, char c, int *j)
 	i = *j;
 	k = 0;
 	while (s[i] && s[i] != c)
-	{
-		sep[k] = s[i];
-		k++;
-		i++;
-	}
+		sep[k++] = s[i++];
 	sep[word_len] = 0;
 	*j = i;
 	return (sep);
@@ -79,9 +75,9 @@ static void	ft_free(char **tab, int index)
 {
 	int	i;
 
-	i = -1;
-	while (++i < index)
-		free(tab[i]);
+	i = 0;
+	while (i < index)
+		free(tab[i++]);
 	free(tab);
 }
 
