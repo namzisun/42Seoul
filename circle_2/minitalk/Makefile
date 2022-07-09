@@ -18,11 +18,24 @@ NAME_BONUS_C = client_bonus
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+all : $(NAME_S) $(NAME_C)
+$(NAME_S) : $(OBJ) libft
+		cp libft/libft.a ./$(NAME)
+		ar rsc $(NAME) $(OBJ)
+$(NAME_C) : 
 
-all: $(NAME_S) $(NAME_C)
+bonus: $(NAME_BONUS_S) $(NAME_BONUS_C)
+$(NAME_BONUS_S) : 
+$(NAME_BONUS_C) : 
 
-$(NAME_S) : server.c minitalk.h
-	$(CC) $(CFLAGS) server.c 
+libft :
+	$(MAKE) -C ./libft all
+clean :
+	$(MAKE) -C ./libft fclean
+	rm -rf $(OBJ)
+fclean : clean	
+	rm -rf $(NAME)
 
+re : fclean all
+
+.PHONY: all clean fclean re libft
