@@ -1,16 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   minitalk_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 17:33:04 by jnam              #+#    #+#             */
-/*   Updated: 2022/07/05 17:40:17 by jnam             ###   ########.fr       */
+/*   Created: 2022/07/10 00:30:29 by jnam              #+#    #+#             */
+/*   Updated: 2022/07/10 00:30:30 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minitalk.h"
+
+void	ft_putstr(char *s)
+{
+	if (!s)
+		return ;
+	while (*s)
+		write(1, s++, 1);
+}
+
+void	ft_putnbr(int n)
+{
+	long	num;
+	char	c;
+
+	num = n;
+	if (num < 0)
+	{
+		write(1, "-", 1);
+		num *= -1;
+	}
+	if (num >= 10)
+	{
+		ft_putnbr(num / 10);
+		ft_putnbr(num % 10);
+	}
+	else
+	{
+		c = num + '0';
+		write(1, &c, 1);
+	}
+}
 
 static int	ft_isspace(char c)
 {
@@ -21,24 +52,6 @@ static int	ft_isspace(char c)
 		return (0);
 }
 
-static long	ft_sign(const char *str, size_t *i)
-{
-	long	sign;
-	size_t	j;
-
-	j = *i;
-	sign = 1;
-	if (str[j] == '-')
-	{
-		sign = -1;
-		j++;
-	}
-	else if (str[j] == '+')
-		j++;
-	*i = j;
-	return (sign);
-}
-
 int	ft_atoi(const char *str)
 {
 	size_t	i;
@@ -47,13 +60,19 @@ int	ft_atoi(const char *str)
 
 	i = 0;
 	num = 0;
+	sign = 1;
 	while (str[i] && ft_isspace(str[i]))
 		i++;
-	sign = ft_sign(str, &i);
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
 	while (str[i] != '\0' && ('0' <= str[i] && str[i] <= '9'))
 	{
-		num *= 10;
-		num += (str[i] - '0');
+		num = (num * 10) + (str[i] - '0');
 		i++;
 	}
 	return (num * sign);

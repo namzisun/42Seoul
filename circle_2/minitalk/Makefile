@@ -5,37 +5,38 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/06/25 17:33:42 by jnam              #+#    #+#              #
-#    Updated: 2022/06/25 17:43:09 by jnam             ###   ########.fr        #
+#    Created: 2022/07/10 00:29:08 by jnam              #+#    #+#              #
+#    Updated: 2022/07/10 00:29:10 by jnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME_S = server
 NAME_C = client
-NAME_BONUS_S = server_bonus
-NAME_BONUS_C = client_bonus
+NAME_S_BONUS = server_bonus
+NAME_C_BONUS = client_bonus
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-all : $(NAME_S) $(NAME_C)
-$(NAME_S) : $(OBJ) libft
-		cp libft/libft.a ./$(NAME)
-		ar rsc $(NAME) $(OBJ)
-$(NAME_C) : 
+SRC = Minitalk_utils.c 
+OBJ = $(SOURCE:.c=.o)
+DEFS = minitalk.h
 
-bonus: $(NAME_BONUS_S) $(NAME_BONUS_C)
-$(NAME_BONUS_S) : 
-$(NAME_BONUS_C) : 
+all: $(NAME_S) $(NAME_C)
+$(NAME_S) : server.c  $(DEFS)
+	$(CC) $(CFLAGS) server.c $(SRC) -o server
+$(NAME_C) : client.c $(DEFS)
+	$(CC) $(CFLAGS) client.c $(SRC) -o client
 
-libft :
-	$(MAKE) -C ./libft all
-clean :
-	$(MAKE) -C ./libft fclean
-	rm -rf $(OBJ)
-fclean : clean	
-	rm -rf $(NAME)
+bonus: $(NAME_S_BONUS) $(NAME_C_BONUS)
+$(NAME_S_BONUS) : server_bonus.c $(DEFS)
+	$(CC) $(CFLAGS) server_bonus.c $(SRC) -o server_bonus
+$(NAME_C_BONUS) : client_bonus.c $(DEFS)
+	$(CC) $(CFLAGS) client_bonus.c $(SRC) -o client_bonus
+	
+clean:
+	@rm -rf $(OBJ)
+fclean: clean
+	@rm -rf $(NAME_S) $(NAME_C) $(NAME_S_BONUS) $(NAME_C_BONUS)
 
-re : fclean all
-
-.PHONY: all clean fclean re libft
+re: fclean all bonus

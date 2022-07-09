@@ -7,10 +7,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
  
-make: *** No rule to make target `all'.  Stop.
 
-
-# Make data base, printed on Sat Jun 25 10:40:45 2022
+# Make data base, printed on Wed Jul  6 15:15:17 2022
 
 # Variables
 
@@ -34,15 +32,16 @@ SHELL = /bin/sh
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
+# makefile (from `Makefile', line 19)
+CFLAGS = -Wall -Wextra -Werror
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
- 
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/mk/3lykfht56g5g6jz2qph9hzlc0000gn/T/vscode-ipc-00be3483-b7bf-4714-925b-944821825ea4.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/mk/3lykfht56g5g6jz2qph9hzlc0000gn/T/vscode-ipc-1252cf36-831f-4649-9ef0-d40de87448da.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -53,10 +52,14 @@ VSCODE_LOG_STACK = false
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# makefile (from `Makefile', line 14)
+NAME_C = client
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.myQtoY2jle/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.mlUScjC60e/Listeners
 # automatic
 %F = $(notdir $%)
+# makefile (from `Makefile', line 13)
+NAME_S = server
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
@@ -74,7 +77,7 @@ VSCODE_CODE_CACHE_PATH = /Users/namzisun/Library/Application Support/Code/Cached
 # environment
 LOGNAME = namzisun
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -87,12 +90,14 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 1
+# makefile (from `Makefile', line 18)
+CC = gcc
 # default
 MAKE_VERSION := 3.81
 # environment
 USER = jnam
 # makefile
-.DEFAULT_GOAL := 
+.DEFAULT_GOAL := all
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
@@ -127,8 +132,12 @@ COMMAND_MODE = unix2003
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
+# makefile (from `Makefile', line 16)
+NAME_BONUS_C = client_bonus
 # environment
 LC_ALL = C
+# makefile (from `Makefile', line 15)
+NAME_BONUS_S = server_bonus
 # automatic
 ^F = $(notdir $^)
 # default
@@ -140,9 +149,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 14514
+VSCODE_PID = 60191
 # variable set hash-table stats:
-# Load=63/1024=6%, Rehash=0, Collisions=1/86=1%
+# Load=69/1024=7%, Rehash=0, Collisions=1/100=1%
 
 # Pattern-specific Variable Values
 
@@ -150,26 +159,36 @@ VSCODE_PID = 14514
 
 # Directories
 
-# . (device 16777220, inode 11696492): 10 files, no impossibilities.
+# . (device 16777220, inode 11696492): 11 files, no impossibilities.
 
-# 10 files, no impossibilities in 1 directories.
+# 11 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
-# No implicit rules.
+%.o: %.c
+#  commands to execute (from `Makefile', line 22):
+	$(CC) $(CFLAGS) -c $< -o $@
+	
+
+# 1 implicit rules, 0 (0.0%) terminal.
 
 # Files
 
-# Not a target:
-all:
+all: server client
 #  Command-line target.
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has not been updated.
+#  File has been updated.
+#  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
 
- 
+# Not a target:
+client:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # Not a target:
 .SUFFIXES:
 #  Implicit rule search has not been done.
@@ -179,11 +198,39 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-25 10:39:07
+#  Last modified 2022-06-25 17:43:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+server: server.c minitalk.h
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: `'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := server
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := server.c minitalk.h
+# automatic
+# | := 
+# automatic
+# < := server.c
+# automatic
+# ^ := server.c minitalk.h
+# automatic
+# ? := server.c minitalk.h
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
+#  commands to execute (from `Makefile', line 27):
+	$(CC) $(CFLAGS) server.c 
+	
 
 # Not a target:
 .DEFAULT:
@@ -191,8 +238,26 @@ Makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+server.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-26 02:00:05
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+minitalk.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-25 10:38:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
 # files hash-table stats:
-# Load=4/1024=0%, Rehash=0, Collisions=0/16=0%
+# Load=8/1024=1%, Rehash=0, Collisions=0/26=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -204,6 +269,6 @@ Makefile:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sat Jun 25 10:40:45 2022
+# Finished Make data base on Wed Jul  6 15:15:17 2022
 
  

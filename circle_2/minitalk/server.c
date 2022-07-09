@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/26 01:35:44 by jnam              #+#    #+#             */
-/*   Updated: 2022/06/26 02:00:05 by jnam             ###   ########.fr       */
+/*   Created: 2022/07/10 00:30:42 by jnam              #+#    #+#             */
+/*   Updated: 2022/07/10 00:30:44 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	receive_message(int sig_num, struct __siginfo *info, void *vo)
 	static int	bit = 0;
 	static int	pid = 0;
 
+	(void)*vo;
 	if (pid != info->si_pid)
 	{
 		pid = info->si_pid;
@@ -49,13 +50,13 @@ void	receive_message(int sig_num, struct __siginfo *info, void *vo)
 		c ^= 0x80 >> bit;
 	if (++bit == 8)
 	{
-		ft_putchar_fd(c, 1);
+		write(1, &c, 1);
 		bit = 0;
 		c = 0xFF;
 	}
 }
 
-int	main(int argc, char *argv)
+int	main(int argc, char **argv)
 {
 	struct sigaction	sa;
 
