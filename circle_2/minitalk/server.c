@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 00:30:42 by jnam              #+#    #+#             */
-/*   Updated: 2022/07/10 00:30:44 by jnam             ###   ########.fr       */
+/*   Updated: 2022/07/10 00:44:15 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,6 @@ void	handshake(int status_num)
 		ft_putstr("status : create socket!\n");
 	else if (status_num == 1)
 		ft_putstr("status : listen\n");
-	else if (status_num == 2)
-		ft_putstr("status : accept\n");
-	else if (status_num == 3)
-		ft_putstr("status : recieve message...\n");
 }
 
 void	receive_message(int sig_num, struct __siginfo *info, void *vo)
@@ -64,6 +60,7 @@ int	main(int argc, char **argv)
 		error_handler(0);
 	sa.sa_sigaction = receive_message;
 	sa.sa_flags = SA_SIGINFO;
+	handshake(0);
 	ft_putstr("pid : ");
 	ft_putnbr(getpid());
 	ft_putstr("\n");

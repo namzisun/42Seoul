@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+         #
+#    By: jnam <jnam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/10 00:29:08 by jnam              #+#    #+#              #
-#    Updated: 2022/07/10 00:29:10 by jnam             ###   ########.fr        #
+#    Updated: 2022/07/10 01:28:22 by jnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME_C_BONUS = client_bonus
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = Minitalk_utils.c 
+SRC = Minitalk_utils.c Minitalk_utils2.c
 OBJ = $(SOURCE:.c=.o)
 DEFS = minitalk.h
 

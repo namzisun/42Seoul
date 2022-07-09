@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: jnam <jnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 00:31:19 by jnam              #+#    #+#             */
-/*   Updated: 2022/07/10 00:31:20 by jnam             ###   ########.fr       */
+/*   Updated: 2022/07/10 01:32:54 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,13 @@ int	main(int argc, char **argv)
 	pid = ft_atoi(argv[1]);
 	if (pid <= 0)
 		error_handling(1);
+	ft_putstr("client pid : ");
+	ft_putnbr(getpid());
+	ft_putstr("\n");
 	handshake(0);
+	send_message("\nclient pid : ", pid);
+	send_message(ft_itoa(getpid()), pid);
+	send_message("\n", pid);
 	send_message(argv[2], pid);
 	usleep(100);
 	handshake(1);
