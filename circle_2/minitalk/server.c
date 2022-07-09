@@ -33,20 +33,21 @@ void	handshake(int status_num)
 
 void	receive_message(int sig_num, struct __siginfo *info, void *vo)
 {
-	static char	c;
-	static int	bit;
+	static char	c = 0xFF;
+	static int	bit = 0;
+	static int	pid = 0;
 
-	c = 0xFF;
-	bit = 0;
-	if(sig_num == SIGUSR1)
+	if (pid != info->si_pid)
 	{
+		pid = info->si_pid;
+		bit = 0;
+		c = 0xFF;
+	}
+	if (sig_num == SIGUSR1)
 		c |= 0x80 >> bit;
-	}
 	else
-	{
 		c ^= 0x80 >> bit;
-	}
-	if(++bit == 8)
+	if (++bit == 8)
 	{
 		ft_putchar_fd(c, 1);
 		bit = 0;
