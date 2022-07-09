@@ -33,18 +33,37 @@ void	handshake(int status_num)
 
 void	receive_message(int sig_num, struct __siginfo *info, void *vo)
 {
+	static char	c;
+	static int	bit;
+
+	c = 0xFF;
+	bit = 0;
+	if(sig_num == SIGUSR1)
+	{
+		c |= 0x80 >> bit;
+	}
+	else
+	{
+		c ^= 0x80 >> bit;
+	}
+	if(++bit == 8)
+	{
+		ft_putchar_fd(c, 1);
+		bit = 0;
+		c = 0xFF;
+	}
 }
 
 int	main(int argc, char *argv)
 {
 	struct sigaction	sa;
 
-	if (argc != 1)
+	if (argc != 1 || argv[1] != NULL)
 		error_handler(0);
 	sa.sa_sigaction = receive_message;
 	sa.sa_flags = SA_SIGINFO;
 	ft_putstr("pid : ");
-	ft_putnbr(getpid(););
+	ft_putnbr(getpid());
 	ft_putstr("\n");
 	handshake(1);
 	sigaction(SIGUSR1, &sa, NULL);

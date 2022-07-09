@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-/*   client.c                                           :+:      :+:    :+:   */
-#                                                     +:+ +:+         +:+      #
-#    By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/06/26 01:14:01 by jnam              #+#    #+#              #
-/*   Updated: 2022/06/26 02:06:56 by jnam             ###   ########.fr       */
-#                                                                              #
-# **************************************************************************** #
-
 #include "minitalk.h"
 
 void	error_handling(int error_num)
@@ -37,9 +25,9 @@ void	shift(char c, int pid)
 	while (bit < 8)
 	{
 		if (c & 0x80)
-			kill(pid, SIGUSR2);
-		else
 			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
 		c <<= 1;
 		bit++;
 		usleep(500);
@@ -60,13 +48,13 @@ int	main(int argc, char **argv)
 {
 	int	pid;
 
-	if (argc != 3)
+	if (argc != 3 || argv[2][0] == '\0')
 		error_handling(0);
 	pid = ft_atoi(argv[1]);
 	if (pid <= 0)
 		error_handling(1);
 	handshake(0);
-	send_message(av[2], pid);
+	send_message(argv[2], pid);
 	usleep(100);
 	handshake(1);
 	exit(0);
