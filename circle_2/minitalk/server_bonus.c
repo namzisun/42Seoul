@@ -22,13 +22,9 @@ void	error_handler(int error_num)
 void	handshake(int status_num)
 {
 	if (status_num == 0)
-		ft_putstr("status : create socket!\n");
+		ft_putstr("status : create server!\n");
 	else if (status_num == 1)
 		ft_putstr("status : listen\n");
-	else if (status_num == 2)
-		ft_putstr("status : accept\n");
-	else if (status_num == 3)
-		ft_putstr("status : recieve message...\n");
 }
 
 void	receive_message(int sig_num, struct __siginfo *info, void *vo)
@@ -50,6 +46,10 @@ void	receive_message(int sig_num, struct __siginfo *info, void *vo)
 		c ^= 0x80 >> bit;
 	if (++bit == 8)
 	{
+		if (!c)
+		{
+			kill(pid, SIGUSR2);
+		}
 		write(1, &c, 1);
 		bit = 0;
 		c = 0xFF;
@@ -64,7 +64,8 @@ int	main(int argc, char **argv)
 		error_handler(0);
 	sa.sa_sigaction = receive_message;
 	sa.sa_flags = SA_SIGINFO;
-	ft_putstr("pid : ");
+	handshake(0);
+	ft_putstr("[server pid] ");
 	ft_putnbr(getpid());
 	ft_putstr("\n");
 	handshake(1);

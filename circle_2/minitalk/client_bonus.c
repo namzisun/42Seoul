@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 13:44:01 by jnam              #+#    #+#             */
-/*   Updated: 2022/07/10 13:44:02 by jnam             ###   ########.fr       */
+/*   Updated: 2022/07/10 15:06:11 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,10 @@ void	error_handling(int error_num)
 	exit(1);
 }
 
-void	handshake(int status_num)
+void	handler(int signum)
 {
-	if (status_num == 0)
-		ft_putstr("status : connect!\n");
-	else if (status_num == 1)
-		ft_putstr("status : sent message\n");
+	if (signum == SIGUSR2)
+		ft_putstr("status : success connect!\n");
 }
 
 void	shift(char c, int pid)
@@ -36,13 +34,12 @@ void	shift(char c, int pid)
 	bit = 0;
 	while (bit < 8)
 	{
-		if (c & 0x80)
+		if (c & (0x80 >> bit))
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		c <<= 1;
 		bit++;
-		usleep(500);
+		usleep(300);
 	}	
 }
 
@@ -51,29 +48,36 @@ void	send_message(char *message, int pid)
 	int	i;
 
 	i = 0;
-	while (message[i])
-		shift(message[i++], pid);
+	while (1)
+	{
+		shift(message[i], pid);
+		if (!message[i])
+			break ;
+		i++;
+	}
 	shift('\0', pid);
 }
 
 int	main(int argc, char **argv)
 {
 	int	pid;
+	int	i;
 
-	if (argc != 3 || argv[2][0] == '\0')
+	i = 2;
+	if (argc < 3 || argv[2][0] == '\0')
 		error_handling(0);
 	pid = ft_atoi(argv[1]);
-	if (pid <= 0)
+	signal(SIGUSR2, handler);
+	if (pid < 101 || 99999 < pid)
 		error_handling(1);
-	ft_putstr("client pid : ");
+	ft_putstr("[client pid] ");
 	ft_putnbr(getpid());
 	ft_putstr("\n");
-	handshake(0);
-	send_message("\nclient pid : ", pid);
-	send_message(ft_itoa(getpid()), pid);
-	send_message("\n", pid);
-	send_message(argv[2], pid);
-	usleep(100);
-	handshake(1);
+	while (argv[i])
+	{
+		send_message(argv[i++], pid);
+		if (argv[i])
+			shift(' ', pid);
+	}
 	exit(0);
 }

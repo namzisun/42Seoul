@@ -61,7 +61,7 @@ int	main(int argc, char **argv)
 	sa.sa_sigaction = receive_message;
 	sa.sa_flags = SA_SIGINFO;
 	handshake(0);
-	ft_putstr("pid : ");
+	ft_putstr("[server pid] ");
 	ft_putnbr(getpid());
 	ft_putstr("\n");
 	handshake(1);
