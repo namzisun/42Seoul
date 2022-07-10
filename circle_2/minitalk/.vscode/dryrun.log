@@ -1,6 +1,7 @@
 make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/namzisun/Desktop/42Seoul/circle_2/minitalk'
-gcc -Wall -Wextra -Werror server.c 
-gcc -Wall -Wextra -Werror    client.c   -o client
-make: Leaving directory `/Users/namzisun/Desktop/42Seoul/circle_2/minitalk'
+make: Entering directory `/Users/jnam/Desktop/42Seoul/circle_2/minitalk'
+gcc -Wall -Wextra -Werror server.c Minitalk_utils.c Minitalk_utils2.c -o server
+ 
+gcc -Wall -Wextra -Werror client.c Minitalk_utils.c Minitalk_utils2.c -o client
+make: Leaving directory `/Users/jnam/Desktop/42Seoul/circle_2/minitalk'
  

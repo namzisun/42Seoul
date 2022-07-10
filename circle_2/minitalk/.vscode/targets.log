@@ -8,7 +8,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Wed Jul  6 15:15:17 2022
+# Make data base, printed on Sun Jul 10 13:42:47 2022
+ 
 
 # Variables
 
@@ -16,16 +17,20 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
-# environment
-VSCODE_LOG_NATIVE = false
+# makefile (from `Makefile', line 22)
+OBJ = $(SOURCE:.c=.o)
+# makefile (from `Makefile', line 21)
+SRC = Minitalk_utils.c Minitalk_utils2.c
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+# makefile (from `Makefile', line 23)
+DEFS = minitalk.h
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/namzisun/Desktop/42Seoul/circle_2/minitalk
+CURDIR := /Users/jnam/Desktop/42Seoul/circle_2/minitalk
 # makefile
 SHELL = /bin/sh
 # environment
@@ -37,15 +42,15 @@ CFLAGS = -Wall -Wextra -Werror
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # environment
-VSCODE_VERBOSE_LOGGING = true
+VSCODE_NODE_CACHED_DATA_DIR = 
 # environment
-__CFBundleIdentifier = com.microsoft.VSCode
+VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/mk/3lykfht56g5g6jz2qph9hzlc0000gn/T/vscode-ipc-1252cf36-831f-4649-9ef0-d40de87448da.sock
+VSCODE_LOGS = /Users/jnam/Library/Application Support/Code/logs/20220710T134131
 # environment
-VSCODE_CWD = /
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cmrw003567/T/vscode-ipc-ff309df2-473c-429d-bb97-8d53726dece1.sock
 # environment
-PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -55,27 +60,19 @@ ELECTRON_RUN_AS_NODE = 1
 # makefile (from `Makefile', line 14)
 NAME_C = client
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.mlUScjC60e/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.PLefl70gBu/Listeners
 # automatic
 %F = $(notdir $%)
 # makefile (from `Makefile', line 13)
 NAME_S = server
 # environment
-VSCODE_PIPE_LOGGING = true
+PWD = /Users/jnam/Desktop/42Seoul/circle_2/minitalk
 # environment
-PWD = /Users/namzisun/Desktop/42Seoul/circle_2/minitalk
-# environment
-ORIGINAL_XDG_CURRENT_DESKTOP = undefined
-# environment
-VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
-# environment
-HOME = /Users/namzisun
+HOME = /Users/jnam
 # default
 MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/namzisun/Library/Application Support/Code/CachedData/5554b12acf27056905806867f251c859323ff7e9
-# environment
-LOGNAME = namzisun
+LOGNAME = jnam
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
@@ -95,9 +92,13 @@ CC = gcc
 # default
 MAKE_VERSION := 3.81
 # environment
+AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# environment
 USER = jnam
 # makefile
 .DEFAULT_GOAL := all
+# environment
+PIPE_LOGGING = true
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
@@ -105,11 +106,11 @@ MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
 # default
 .VARIABLES := 
 # environment
-TMPDIR = /var/folders/mk/3lykfht56g5g6jz2qph9hzlc0000gn/T/
+TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000cmrw003567/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/namzisun/Library/Application Support/Code/1.64.0-main.sock
+VSCODE_IPC_HOOK = /Users/jnam/Library/Application Support/Code/1.39.2-main.sock
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -119,29 +120,27 @@ MFLAGS = -Rrqp
 # environment
 MAIL = jnam@student.42seoul.kr
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.5462703.5462709
+XPC_SERVICE_NAME = com.microsoft.VSCode.1144
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
-__CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x0
-# environment
-COMMAND_MODE = unix2003
+__CF_USER_TEXT_ENCODING = 0x194C7:0x0:0x0
 # default
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
-# makefile (from `Makefile', line 16)
-NAME_BONUS_C = client_bonus
 # environment
 LC_ALL = C
 # makefile (from `Makefile', line 15)
-NAME_BONUS_S = server_bonus
+NAME_S_BONUS = server_bonus
 # automatic
 ^F = $(notdir $^)
 # default
 SUFFIXES := 
+# makefile (from `Makefile', line 16)
+NAME_C_BONUS = client_bonus
 # default
 .INCLUDE_DIRS = /usr/local/include
 # environment
@@ -149,9 +148,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 60191
+VSCODE_PID = 67384
 # variable set hash-table stats:
-# Load=69/1024=7%, Rehash=0, Collisions=1/100=1%
+# Load=68/1024=7%, Rehash=0, Collisions=8/109=7%
 
 # Pattern-specific Variable Values
 
@@ -159,20 +158,23 @@ VSCODE_PID = 60191
 
 # Directories
 
-# . (device 16777220, inode 11696492): 11 files, no impossibilities.
+# . (device 16777225, inode 431234): 12 files, no impossibilities.
 
-# 11 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
-%.o: %.c
-#  commands to execute (from `Makefile', line 22):
-	$(CC) $(CFLAGS) -c $< -o $@
-	
-
-# 1 implicit rules, 0 (0.0%) terminal.
+# No implicit rules.
 
 # Files
+
+server_bonus: server_bonus.c minitalk.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 33):
+	$(CC) $(CFLAGS) server_bonus.c $(SRC) -o server_bonus
+	
 
 all: server client
 #  Command-line target.
@@ -181,10 +183,18 @@ all: server client
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+
+client: client.c minitalk.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 29):
+	$(CC) $(CFLAGS) client.c $(SRC) -o client
+	
 
 # Not a target:
-client:
+client_bonus.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -198,7 +208,7 @@ client:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-25 17:43:09
+#  Last modified 2022-07-10 13:42:07
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -227,37 +237,84 @@ server: server.c minitalk.h
 # automatic
 # ? := server.c minitalk.h
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
+# Load=8/32=25%, Rehash=0, Collisions=3/13=23%
 #  commands to execute (from `Makefile', line 27):
-	$(CC) $(CFLAGS) server.c 
+	$(CC) $(CFLAGS) server.c $(SRC) -o server
+	
+
+# Not a target:
+server_bonus.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+client.c:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+bonus: server_bonus client_bonus
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+fclean: clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 40):
+	@rm -rf $(NAME_S) $(NAME_C) $(NAME_S_BONUS) $(NAME_C_BONUS)
 	
 
 # Not a target:
 .DEFAULT:
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
 server.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-26 02:00:05
+#  Last modified 2022-07-10 13:42:07
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
+re: fclean all bonus
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 38):
+	@rm -rf $(OBJ)
+	
+
+client_bonus: client_bonus.c minitalk.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 35):
+	$(CC) $(CFLAGS) client_bonus.c $(SRC) -o client_bonus
+	
+
 # Not a target:
 minitalk.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-25 10:38:40
+#  Last modified 2022-07-10 13:42:07
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=8/1024=1%, Rehash=0, Collisions=0/26=0%
+# Load=17/1024=2%, Rehash=0, Collisions=0/47=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -269,6 +326,6 @@ minitalk.h:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Wed Jul  6 15:15:17 2022
+# Finished Make data base on Sun Jul 10 13:42:47 2022
 
  
