@@ -3,7 +3,7 @@
 void	error_handler(int error_num)
 {
 	if (error_num == 0)
-		ft_putstr("error : please put least 3 arguments.\n");
+		ft_putstr("error : please put least 2 arguments.\n");
 	else if (error_num == 1)
 		ft_putstr("error : argument is not num.\n");
 	else if (error_num == 2)

@@ -1,6 +1,6 @@
 NAME = pushswap.a
 FLAGS = -Wall -Wextra -Werror
-SRC = push_swap.c error_handler.c
+SRC = push_swap.c error_handler.c stack.c
 OBJ = $(SRC:.c=.o)
 INC_LINK = -I.
 

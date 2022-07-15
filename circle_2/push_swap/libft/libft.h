@@ -6,7 +6,7 @@
 /*   By: jnam <jnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:09:33 by jnam              #+#    #+#             */
-/*   Updated: 2022/07/14 16:55:08 by jnam             ###   ########.fr       */
+/*   Updated: 2022/07/15 23:57:53 by jnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct s_list
 
 long long	ft_atol(const char *s);
 char		**ft_split(char const *s, char c);
-size_t		ft_strlen(const char *s);
 void		ft_putstr(char *s);
 t_list		*ft_lstnew(void *content);
 void		ft_lstadd_front(t_list **lst, t_list *new);
@@ -35,5 +34,6 @@ void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstclear(t_list **lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void		ft_free(char **tab, int index);
 
 #endif
