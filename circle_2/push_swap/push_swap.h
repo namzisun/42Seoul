@@ -2,24 +2,25 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include <stdio.h>
 
-typedef struct s_node
+typedef struct s_list
 {
 	long long		data;
-	struct s_node	*prev;
-	struct s_node	*next;
-}	t_node;
+	struct s_list	*prev;
+	struct s_list	*next;
+}	t_list;
 
 typedef struct s_stack
 {
 	int		size;
-	t_node	*top;
-	t_node	*bottom;
+	t_list	*top;
+	t_list	*bottom;
 }	t_stack;
 
 void	error_handler(int error_num);
-t_node	*ft_new_node(long long data);
-t_node	*ft_stack_bottom(t_node *lst);
-void	ft_push_bottom(t_stack *stack_info, t_node **stack, t_node *new);
+t_list	*init_new_node(long long data);
+void	stack_push_bottom(t_stack *stack_info, t_list **stack, t_list *new);
+void	stack_pop_top(t_stack *stack_info, t_list **stack);
 
 #endif

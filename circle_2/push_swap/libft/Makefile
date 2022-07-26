@@ -6,7 +6,7 @@
 #    By: jnam <jnam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/25 15:57:20 by jnam              #+#    #+#              #
-#    Updated: 2022/07/14 16:58:22 by jnam             ###   ########.fr        #
+#    Updated: 2022/07/26 17:34:10 by jnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,6 @@ NAME = libft.a
 
 SRCS = \
 ft_atol.c ft_split.c ft_putstr.c \
-ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c \
-ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
 
 OBJS = $(SRCS:.c=.o)
 OBJECTS = $(OBJS)

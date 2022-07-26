@@ -1,4 +1,5 @@
-NAME = pushswap.a
+NAME = pushswap
+CC = gcc
 FLAGS = -Wall -Wextra -Werror
 SRC = push_swap.c error_handler.c stack.c
 OBJ = $(SRC:.c=.o)
@@ -11,7 +12,7 @@ $(NAME) : $(OBJ) libft
 		ar rsc $(NAME) $(OBJ)
 
 %.o: %.c
-	gcc $(FLAGS) $(INC_LINK) -c $< -o $(<:.c=.o)
+	$(CC) $(FLAGS) $(INC_LINK) -c $< -o $(<:.c=.o)
 
 libft :
 	$(MAKE) -C ./libft all
