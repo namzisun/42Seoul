@@ -14,24 +14,39 @@ t_list	*init_new_node(long long data)
 	return (newnode);
 }
 
-void	stack_push_bottom(t_stack *stack_info, t_list **stack, t_list *new)
+void	stack_push_top(t_stack *stack_info, t_list *node)
+{
+	if (node)
+	{
+		if (stack_info->top)
+		{
+			node->next = stack_info->top;
+			(stack_info->top)->prev = node;
+			stack_info->top = node;
+		}
+		else
+		{
+			stack_info->top = node;
+			stack_info->bottom = node;
+		}
+		(stack_info->size)++;
+	}
+}
+
+void	stack_push_bottom(t_stack *stack_info, t_list *new)
 {
 	t_list	*bottom;
-	if (!stack)
-	{
-		stack = (t_list **)malloc(sizeof(t_list *));
-	}
-	if (stack && new)
+
+	if (new)
 	{
 		//printf("1. push\n");
-		if (!(*stack))
+		if (!(stack_info->top))
 		{
 			//printf("2. push\n");
-			*stack = new;
 			stack_info->top = new;
 			stack_info->bottom = new;
 		}
-		else if (*stack)
+		else
 		{
 			//printf("push\n");
 			//printf("3. push\n");
@@ -46,11 +61,11 @@ void	stack_push_bottom(t_stack *stack_info, t_list **stack, t_list *new)
 	printf("%d size\n", stack_info->size);
 }
 
-void	stack_pop_top(t_stack *stack_info, t_list **stack)
+t_list	*stack_pop_top(t_stack *stack_info)
 {
 	t_list *cur;
 
-	if (stack && *stack)
+	if (stack_info->top)
 	{
 		if (stack_info->top->next != NULL)
 		{
@@ -68,7 +83,10 @@ void	stack_pop_top(t_stack *stack_info, t_list **stack)
 		(stack_info->size)--;
 		printf("%lld pop : ", cur->data);
 		printf("%d size\n", stack_info->size);
-		free(cur);
+		//free(cur);
 		// 더이상 스택에 데이터 들어올 일 없으면 스택도 프리해줘야 함
+		return (cur);
 	}
+	else
+		return (NULL);
 }
