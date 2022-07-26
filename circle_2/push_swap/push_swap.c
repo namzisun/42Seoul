@@ -48,23 +48,10 @@ void	check_char_argument(char *argv, t_list **stack_a, t_stack *stack_a_info)
 	stack_push_bottom(stack_a_info, stack_a, new_node);
 }
 
-
-
-int	main(int argc, char **argv)
+t_list	**make_stack_a(t_list **stack_a, t_stack *stack_a_info, char **argv)
 {
-	int	i;
-	t_list	**stack_a;
-//	t_list	**stack_b;
-	t_stack	*stack_a_info;
-//	t_stack *stack_b_info;
-	
-	stack_a = (t_list **)malloc(sizeof(t_list *));
-	stack_a_info = (t_stack *)malloc(sizeof(t_stack));
-	stack_a_info->top = NULL;
-	stack_a_info->bottom = NULL;
-	stack_a_info->size = 0;
-	if (argc < 2)
-		error_handler(0);
+	int		i;
+
 	i = 1;
 	while (argv[i])
 	{
@@ -73,8 +60,50 @@ int	main(int argc, char **argv)
 		else
 			check_char_argument(argv[i++], stack_a, stack_a_info);
 	}
-	stack_pop_top(stack_a_info, stack_a);
-	stack_pop_top(stack_a_info, stack_a);
-	stack_pop_top(stack_a_info, stack_a);
+	return (stack_a);
+}
+
+t_stack	*init_stack_info()
+{
+	t_stack	*stack_info;
+
+	stack_info = (t_stack *)malloc(sizeof(t_stack));
+	if (!stack_info)
+		return (NULL);
+		// free하고 종료 시키기
+	stack_info->top = NULL;
+	stack_info->bottom = NULL;
+	stack_info->size = 0;
+	return (stack_info);
+}
+
+t_list	**init_stack()
+{
+	t_list	**stack;
+
+	stack = (t_list **)malloc(sizeof(t_list *));
+	if(!stack)
+		exit(1);
+		//기존에 생성된 존재들 모두 free하고 종료
+	return (stack);
+}
+
+int	main(int argc, char **argv)
+{
+	t_list 	**stack_a;
+	t_list 	**stack_b;
+	t_stack	*stack_a_info;
+	t_stack	*stack_b_info;
+
+	if (argc < 2)
+		error_handler(0);
+	stack_a = init_stack();
+	stack_b = init_stack();
+	stack_a_info = init_stack_info();
+	stack_b_info = init_stack_info();
+	stack_a = make_stack_a(stack_a, stack_a_info, argv);
+	printf("%lld\n", (*stack_a)->data);
+	free(stack_b);
+	free(stack_b_info);
 	return 0;
 }

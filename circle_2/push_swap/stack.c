@@ -4,7 +4,7 @@
 t_list	*init_new_node(long long data)
 {
 	t_list	*newnode;
-	printf("%lld init\n", data);
+	printf("%lld init : ", data);
 	newnode = (t_list *)malloc(sizeof(*newnode));
 	if (!newnode)
 		return (NULL);
@@ -17,6 +17,10 @@ t_list	*init_new_node(long long data)
 void	stack_push_bottom(t_stack *stack_info, t_list **stack, t_list *new)
 {
 	t_list	*bottom;
+	if (!stack)
+	{
+		stack = (t_list **)malloc(sizeof(t_list *));
+	}
 	if (stack && new)
 	{
 		//printf("1. push\n");

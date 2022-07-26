@@ -22,5 +22,7 @@ void	error_handler(int error_num);
 t_list	*init_new_node(long long data);
 void	stack_push_bottom(t_stack *stack_info, t_list **stack, t_list *new);
 void	stack_pop_top(t_stack *stack_info, t_list **stack);
+t_stack	*init_stack_info();
+t_list	**init_stack();
 
 #endif
