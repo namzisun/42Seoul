@@ -10,5 +10,7 @@ void	error_handler(int error_num)
 		ft_putstr("error : ft_split returns NULL.\n");
 	else if (error_num == 3)
 		ft_putstr("error : ft_lstnew returns NULL.\n");
+	else if (error_num == 4)
+		ft_putstr("error : argument duplicate.\n");
 	exit(1);
 }

@@ -23,10 +23,11 @@ void	error_handler(int error_num);
 t_stack	*init_stack_info();
 t_list	**init_stack();
 
+int		check_duplicate(long long data, t_stack *stack_info);
 void	check_str_argument(char *argv, t_stack *stack_a_info);
 void	check_char_argument(char *argv, t_stack *stack_a_info);
 void	make_stack_a(t_stack *stack_a_info, char **argv);
-void	ft_free(char **tab, int index);				// 얘는 수정하기
+//void	ft_free(char **tab, int index);				// 얘는 수정하기
 
 t_list	*init_new_node(long long data);
 void	stack_push_top(t_stack *stack_info, t_list *node);
