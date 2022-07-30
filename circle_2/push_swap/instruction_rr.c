@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	rra(t_stack *stack_info)
+void	rra(t_stack *stack_info, int flag)
 {
 	t_list	*old_bottom;
 	t_list	*new_bottom;
@@ -10,7 +10,7 @@ void	rra(t_stack *stack_info)
 	if (stack_info->size == 1)
 		return ;
 	else if (stack_info->size == 2)
-		sa(stack_info);
+		sa(stack_info, 1);
 	else
 	{
 		old_bottom = stack_info->bottom;
@@ -22,10 +22,11 @@ void	rra(t_stack *stack_info)
 		(stack_info->top)->prev = old_bottom;
 		stack_info->top = old_bottom;
 	}
-	ft_putstr("rra\n");
+	if (flag == 0)
+		ft_putstr("rra\n");
 }
 
-void	rrb(t_stack *stack_info)
+void	rrb(t_stack *stack_info, int flag)
 {
 	t_list	*old_bottom;
 	t_list	*new_bottom;
@@ -35,7 +36,7 @@ void	rrb(t_stack *stack_info)
 	if (stack_info->size == 1)
 		return ;
 	else if (stack_info->size == 2)
-		sa(stack_info);
+		sb(stack_info, 1);
 	else
 	{
 		old_bottom = stack_info->bottom;
@@ -47,12 +48,13 @@ void	rrb(t_stack *stack_info)
 		(stack_info->top)->prev = old_bottom;
 		stack_info->top = old_bottom;
 	}
-	ft_putstr("rrb\n");
+	if (flag == 0)
+		ft_putstr("rrb\n");
 }
 
 void	rrr(t_stack *stack_a_info, t_stack *stack_b_info)
 {
-	rra(stack_a_info);
-	rrb(stack_b_info);
+	rra(stack_a_info, 1);
+	rrb(stack_b_info, 1);
 	ft_putstr("rrr\n");
 }

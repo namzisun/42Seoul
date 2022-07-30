@@ -18,7 +18,7 @@ void	pb(t_stack *stack_a_info, t_stack *stack_b_info)
 	ft_putstr("pb\n");
 }
 
-void	sa(t_stack *stack_info)
+void	sa(t_stack *stack_info, int flag)
 {
 	t_list	*new_top;
 	t_list	*old_top;
@@ -40,10 +40,11 @@ void	sa(t_stack *stack_info)
 		new_top->next = old_top;
 		stack_info->top = new_top;
 	}
-	ft_putstr("sa\n");
+	if (flag == 0)
+		ft_putstr("sa\n");
 }
 
-void	sb(t_stack *stack_info)
+void	sb(t_stack *stack_info, int flag)
 {
 	t_list	*new_top;
 	t_list	*old_top;
@@ -65,12 +66,13 @@ void	sb(t_stack *stack_info)
 		new_top->next = old_top;
 		stack_info->top = new_top;
 	}
-	ft_putstr("sb\n");
+	if (flag == 0)
+		ft_putstr("sb\n");
 }
 
 void	ss(t_stack *stack_a_info, t_stack *stack_b_info)
 {
-	sa(stack_a_info);
-	sb(stack_b_info);
+	sa(stack_a_info, 1);
+	sb(stack_b_info, 1);
 	ft_putstr("ss\n");
 }
